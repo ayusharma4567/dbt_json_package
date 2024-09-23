@@ -5,7 +5,8 @@
         ├── flatten_json
 │   ├── dbt_project.yml
 │   ├── README.md
-
+|-- Linence
+|-- Readme.md
 # JSON Flatten Package
 
 This dbt package contains a macro that can flatten any JSON structure into a structured format using Snowflake's `FLATTEN` function.
