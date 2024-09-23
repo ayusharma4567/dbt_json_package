@@ -6,10 +6,43 @@ Try running the following commands:
 - dbt run
 - dbt test
 
+## How to Run Tests
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+1. After installing the package, you can run the provided tests to verify that the macros work as expected.
+   
+2. Run the tests using:
+
+   ```bash
+   dbt test
+   
+3. use this to run the package:
+      this macro only be used with json file with nested array
+      -- with flatten_json_nested_array as (
+
+      {{ flatten_json_nested_array(
+
+         model_name = source('my_source','employee'),
+         json_column = 'json_data'
+
+      ) }}
+      )
+
+      select * 
+      from flatten_json_nested_array
+
+      --this macro only be used with json file without nested array
+
+      with flatten_json as (
+
+      {{ flatten_json(
+
+         model_name = source('my_source','employee'),
+         json_column = 'json_data'
+
+      ) }}
+      )
+
+      select * 
+      from flatten_json
+
+
